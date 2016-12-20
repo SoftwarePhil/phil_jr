@@ -1,6 +1,6 @@
 defmodule SlackRtm do
     use Slack
-    alias SpoonacularApi as:, Spoon
+    alias SpoonacularApi, as: Spoon
 
     def handle_connect(slack, state) do
         IO.puts "Connected as #{slack.me.name}"
