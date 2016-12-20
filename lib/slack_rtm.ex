@@ -1,5 +1,6 @@
 defmodule SlackRtm do
     use Slack
+    alias SpoonacularApi as:, Spoon
 
     def handle_connect(slack, state) do
         IO.puts "Connected as #{slack.me.name}"
@@ -18,6 +19,12 @@ defmodule SlackRtm do
         {:ok, state}
     end
 
+    def handle_event(message = %{type: "message", text: content}, slack, state) when content == "Tell me a joke" do 
+        Spoon.joke
+        |>send_message(message.channel, slack)
+        {:ok, state}
+    end
+
     def handle_event(message = %{type: "message"}, slack, state) do
         send_message("I got a message!", message.channel, slack)
         {:ok, state}
@@ -33,8 +40,6 @@ defmodule SlackRtm do
 
     def handle_info(_, _, state), do: {:ok, state}
 end
-#Slack.Bot.start_link(SlackRtm, [], "TOKEN_HERE")
-#Slack.Bot.start_link(SlackRtm, [], "xoxb-114233471719-W70Y0PyYjEv2cMiM1ZtGuiWd")
 
-#{:ok, rtm} = Slack.Bot.start_link(SlackRtm, [], "xoxb-114233471719-W70Y0PyYjEv2cMiM1ZtGuiWd")
-#send rtm, {:message, "External message", "#general"}
+
+

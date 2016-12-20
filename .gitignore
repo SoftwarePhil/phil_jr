@@ -17,3 +17,4 @@ erl_crash.dump
 *.ez
 
 lib/phil_jr_bot.ex
+lib/spoonacular_api.ex
