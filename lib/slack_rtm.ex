@@ -19,7 +19,7 @@ defmodule SlackRtm do
         {:ok, state}
     end
 
-    def handle_event(message = %{type: "message", text: content}, slack, state) when content == "Tell me a joke" do 
+    def handle_event(message = %{type: "message", text: content}, slack, state) when content == "tell me a joke" do 
         Spoon.joke
         |>send_message(message.channel, slack)
         {:ok, state}
