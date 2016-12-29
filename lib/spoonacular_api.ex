@@ -6,7 +6,7 @@ defmodule SpoonacularApi do
     @doc """ 
         gets a joke
         curl --get --include 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/jokes/random' \
-        -H 'X-Mashape-Key: 9yzAdLPogemsha8Da4FMKOn6T38vp1ZOcj7jsnDdfDalVBmLaC' \
+        -H 'X-Mashape-Key:  \
         -H 'Accept: application/json'
     """
     def joke do
@@ -19,7 +19,7 @@ defmodule SpoonacularApi do
     
     @doc """
         curl --get --include 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/convert?ingredientName=brown+rice&sourceAmount=2.5&sourceUnit=cups&targetUnit=grams' \
-        -H 'X-Mashape-Key: 9yzAdLPogemsha8Da4FMKOn6T38vp1ZOcj7jsnDdfDalVBmLaC' \
+        -H 'X-Mashape-Key:  \
         -H 'Accept: application/json'
     """
     def convert(ingredient, amount, unit, other_unit) do
