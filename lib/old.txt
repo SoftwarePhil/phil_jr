@@ -1,0 +1,24 @@
+"""
+    def handle_event(message = %{type: "message", text: content}, slack, state) when content == "hello" do 
+        IO.inspect message
+        name = Slack.Lookups.lookup_user_name(message.user, slack)
+        send_message("hello, #{name} sir", message.channel, slack)
+        {:ok, state}
+    end
+
+    def handle_event(message = %{type: "message", text: content}, slack, state) when content == "how are you?" do 
+        send_message("I am doing fucking great", message.channel, slack)
+        {:ok, state}
+    end
+
+    def handle_event(message = %{type: "message", text: content}, slack, state) when content == "tell me a joke" do 
+        Spoon.joke
+        |>send_message(message.channel, slack)
+        {:ok, state}
+    end
+
+    def handle_event(message = %{type: "message"}, slack, state) do
+        send_message("I got a message!", message.channel, slack)
+        {:ok, state}
+    end
+"""
