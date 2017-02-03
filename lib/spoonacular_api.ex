@@ -42,5 +42,4 @@ defmodule SpoonacularApi do
         key = Agent.get(__MODULE__, fn key -> key end)
         ["X-Mashape-Key": key, "Accept": "application/json"]
     end
- 
 end
